@@ -1,0 +1,6 @@
+.form__input-container {
+  display: block;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 358px;
+}

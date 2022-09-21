@@ -1,0 +1,14 @@
+.identification__subButton {
+  height: 50px;
+  margin-top: 216px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 550px) {
+  .identification__subButton {
+    margin-top: 173px;
+  }
+}

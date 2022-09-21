@@ -1,0 +1,4 @@
+.form__save_loading {
+  display: block;
+  background-image: url(../../../../images/buttonLoading.svg);
+}

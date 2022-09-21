@@ -1,0 +1,26 @@
+.form__save {
+	background: transparent url(../../../images/SaveIcon.svg) center no-repeat;
+	border: none;
+	max-width: 358px;
+	height: 50px;
+	margin: 18px 0 0;
+	padding: 14px 124px 18px;
+	cursor: pointer;
+	transition: filter 1s linear;
+	background-position: center;
+}
+
+.form__save:hover {
+	filter: opacity(80%);
+}
+
+@media screen and (max-width: 550px) {
+	.form__save {
+		max-width: 238px;
+		height: 46px;
+		padding: 14px 82px;
+		font-size: 14px;
+		line-height: 1.21;
+		margin: 15px 0 0;
+	}
+}

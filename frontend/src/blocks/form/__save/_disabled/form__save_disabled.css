@@ -1,0 +1,10 @@
+.form__save_disabled {
+	background: transparent url(../../../../images/SubmitButtonInactive.svg) center no-repeat;
+	border: none;
+	height: 50px;
+	margin: 18px 0 0;
+	padding: 14px 124px 18px;
+	cursor: text;
+  max-width: 358px;
+	background-position: center;
+}

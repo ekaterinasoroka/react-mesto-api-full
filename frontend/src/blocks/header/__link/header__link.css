@@ -1,0 +1,9 @@
+.header__link{
+  display: flex;
+  flex-direction: row;
+  font-weight: 400;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  cursor: pointer;
+}

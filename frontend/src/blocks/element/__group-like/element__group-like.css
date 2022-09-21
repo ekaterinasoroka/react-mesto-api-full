@@ -1,0 +1,8 @@
+.element__group-like {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 22px;
+  width: 100%;
+  align-items: center;
+}

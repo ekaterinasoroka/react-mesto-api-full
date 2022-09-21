@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.21;
+  max-width: 430px;
+  background-color: #fff;
+  border-radius: 10px;
+  position: relative;
+  padding: 34px 36px 37px;
+}
+
+@media screen and (max-width: 550px) {
+  .form {
+    padding: 25px 22px;
+  }
+}
