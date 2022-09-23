@@ -38,7 +38,7 @@ module.exports.deleteCardById = async (req, res, next) => {
     if (userId !== card.owner.toString()) {
       return next(new ForbiddenError('Вы не можете удалить чужую карточку'));
     }
-    await Card.findByIdAndRemove(cardId);
+    await Card.findByIdAndDelete(cardId);
     return res.status(200).send({ message: 'Карточка успешно удалена' });
   } catch (error) {
     if (error.name === 'CastError') {

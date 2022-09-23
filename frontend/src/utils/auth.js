@@ -30,3 +30,14 @@ export const authorize = ({ password, email }) => {
   })
     .then(response => checkResponse(response))
 }
+
+export const logout = () => {
+  return fetch(`${url}/logout`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    credentials: 'include',
+  })
+    .then(response => checkResponse(response))
+}

@@ -142,3 +142,12 @@ module.exports.updateAvatar = async (req, res, next) => {
     return next(new ServerError('Произошла ошибка на сервере'));
   }
 };
+
+module.exports.logout = (req, res, next) => {
+  try {
+    res.clearCookie('jwt');
+    return res.status(200).send({ message: 'Выполнен выход' });
+  } catch (error) {
+    return next(new ServerError('Произошла ошибка на сервере'));
+  }
+};

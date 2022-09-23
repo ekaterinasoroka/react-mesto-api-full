@@ -2,7 +2,7 @@ const express = require('express');
 const UserRoutes = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const {
-  createUser, getUserById, getUser, updateProfile, updateAvatar, login, getUserInfo,
+  createUser, getUserById, getUser, updateProfile, updateAvatar, login, getUserInfo, logout,
 } = require('../controllers/users');
 const auth = require('../middlewares/auth');
 
@@ -24,6 +24,7 @@ UserRoutes.post('/signin', express.json(), celebrate({
   }),
 }), login);
 UserRoutes.use(auth);
+UserRoutes.get('/logout', express.json(), logout);
 UserRoutes.get('/users', express.json(), getUser);
 UserRoutes.get('/users/me', express.json(), getUserInfo);
 UserRoutes.get('/users/:userId', express.json(), celebrate({

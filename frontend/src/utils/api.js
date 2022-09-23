@@ -71,8 +71,8 @@
   }
 
   
-  deleteCard(data) {
-    return fetch(`${this._url}/cards/${data}`, {
+  deleteCard(card) {
+    return fetch(`${this._url}/cards/${card}`, {
       headers: this._headers,
       credentials: 'include',
       method: 'DELETE',
