@@ -94,7 +94,6 @@ module.exports.login = async (req, res, next) => {
       maxAge: 3600000,
       httpOnly: true,
       sameSite: true,
-      path: '/',
     });
     return res.status(200).send(user.toJSON());
   } catch (error) {

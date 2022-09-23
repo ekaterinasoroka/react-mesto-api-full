@@ -25,18 +25,8 @@ export const authorize = ({ password, email }) => {
     headers: {
       'Content-Type': 'application/json'
     },
+    credentials: 'include',
     body: JSON.stringify({ password, email })
   })
     .then(response => checkResponse(response))
 }
-
-export const getContent = (token) => {
-  return fetch(`${url}/users/me`, {
-    method: 'GET',
-    credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-    .then(response => checkResponse(response))
-};

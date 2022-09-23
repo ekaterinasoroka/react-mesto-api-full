@@ -32,27 +32,32 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(loggedIn) {
-      history.push('/')
-      Promise.all([api.getInfoUsers(), api.getCards()])
-      .then(([userInfo, card]) => {
-        setCards(card);
-        setCurrentUser(userInfo)
+    if(!loggedIn) {
+      api.getInfoUsers()
+      .then((userInfo) => {
+        setCurrentUser(userInfo);
+        setLoggedIn(true);
       })
-      .catch((err) => console.log(err));
-    } 
-  }, [loggedIn, history]);
+      .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
 
   useEffect(() => {
-    auth.getContent()
-    .then(res => {
-      setEmailInfo(res.email);
-      setLoggedIn(true);
-    })
-    .catch(err => {
-      console.log(`Ошибка: ${err}`)
-    });
-  }, [history]);
+    if(!loggedIn) {
+      api.getCards()
+      .then((card) => {
+        setCards(card);
+        setLoggedIn(true);
+      })
+      .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      history.push("/");
+    }
+  }, [loggedIn, history]);
 
   function onLogout() {
     setLoggedIn(false);
@@ -65,7 +70,7 @@ function App() {
         if(data) {
           setIsInfoTooltipOpen(true);
           setIsSuccessTooltipStatus(true);
-          history.push('/signin');
+          history.push('/signin')         
         }
         else{
           setIsSuccessTooltipStatus(true);
@@ -79,8 +84,8 @@ function App() {
 
   function onLogin(data) {
     return auth.authorize(data)
-      .then((data) => {
-        if (data) {
+      .then(({token}) => {
+        if ({token}) {
           setEmailInfo(data.email);
           setLoggedIn(true);
         }

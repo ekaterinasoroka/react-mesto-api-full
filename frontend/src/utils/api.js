@@ -11,7 +11,7 @@
     if(res.ok) {
       return res.json();
     }
-    return Promise.reject('Ошибка')
+    return Promise.reject(`'Ошибка': ${res.status}`);
   }
 
   getInfoUsers() {
@@ -35,6 +35,7 @@
     return fetch(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
+      credentials: 'include',
       body: JSON.stringify({name: item.name, about: item.about})
     })
     .then(this._checkingTheResponse);
@@ -43,6 +44,7 @@
   addNewCard(item) {
     return fetch(`${this._url}/cards`, {
       headers: this._headers,
+      credentials: 'include',
       method: 'POST',
       body: JSON.stringify({name: item.name, link: item.link})
     })
@@ -52,6 +54,7 @@
   toggleLike(data, isLiked) {
     return fetch(`${this._url}/cards/${data}/likes`, {
       headers: this._headers,
+      credentials: 'include',
       method: `${isLiked ? 'DELETE' : 'PUT'}`
     })
       .then(this._checkingTheResponse); 
@@ -60,6 +63,7 @@
   updateAvatarUser(item) {
     return fetch(`${this._url}/users/me/avatar`, {
       headers: this._headers,
+      credentials: 'include',
       method: 'PATCH',
       body: JSON.stringify({avatar: item.avatar})
     })
@@ -70,6 +74,7 @@
   deleteCard(data) {
     return fetch(`${this._url}/cards/${data}`, {
       headers: this._headers,
+      credentials: 'include',
       method: 'DELETE',
     })
     .then(this._checkingTheResponse);

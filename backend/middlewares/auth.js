@@ -11,7 +11,7 @@ const auth = (req, res, next) => {
     next(new UnauthorizedError('Ошибка авторизации'));
   }
   req.users = payload;
-  return next();
+  next();
 };
 
 module.exports = auth;
