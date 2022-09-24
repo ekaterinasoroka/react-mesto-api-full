@@ -32,30 +32,16 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(!loggedIn) {
-      api.getInfoUsers()
-      .then((userInfo) => {
+    if(loggedIn) {
+      Promise.all([api.getInfoUsers(), api.getCards()]) 
+      .then(([userInfo, card]) => {
         setCurrentUser(userInfo);
-        setLoggedIn(true);
-      })
-      .catch((err) => console.log(err))
-    }
-  }, [loggedIn]);
-
-  useEffect(() => {
-    if(!loggedIn) {
-      api.getCards()
-      .then((card) => {
         setCards(card);
         setLoggedIn(true);
+        setEmailInfo(userInfo.email);
+        history.push('/');
       })
       .catch((err) => console.log(err))
-    }
-  }, [loggedIn]);
-
-  useEffect(() => {
-    if (loggedIn) {
-      history.push("/");
     }
   }, [loggedIn, history]);
 
@@ -92,6 +78,7 @@ function App() {
         if ({token}) {
           setEmailInfo(data.email);
           setLoggedIn(true);
+          history.push('/');
         }
         else {
           setIsInfoTooltipOpen(true);

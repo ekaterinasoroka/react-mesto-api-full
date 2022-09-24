@@ -7,6 +7,8 @@ const BadRequestError = require('../errors/BadRequestError');
 const NotFoundError = require('../errors/NotFoundError');
 const UnauthorizedError = require('../errors/UnauthorizedError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 module.exports.getUser = async (req, res, next) => {
   try {
     const users = await User.find({});
@@ -89,7 +91,7 @@ module.exports.login = async (req, res, next) => {
 
     const token = jwt.sign({
       _id: user._id,
-    }, 'SECRET');
+    }, NODE_ENV === 'production' ? JWT_SECRET : 'SECRET');
     res.cookie('jwt', token, {
       maxAge: 3600000,
       httpOnly: true,
