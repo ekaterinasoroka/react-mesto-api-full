@@ -1,4 +1,4 @@
-export const url = 'http://localhost:4000';
+export const url = 'http://api.soroka.nomorepartiesxyz.ru';
 
 const checkResponse = (res) => {
   if (res.ok) {

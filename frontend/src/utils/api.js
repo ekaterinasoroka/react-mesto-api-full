@@ -81,6 +81,6 @@
   }
 }
 
- const api = new Api('http://localhost:4000'); 
+ const api = new Api('http://api.soroka.nomorepartiesxyz.ru'); 
 
  export default api;
