@@ -8,6 +8,8 @@ const { errors, celebrate, Joi } = require('celebrate');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { UserRoutes } = require('./routes/users');
 const { CardRoutes } = require('./routes/cards');
+const { createUser, login } = require('./controllers/users');
+const auth = require('./middlewares/auth');
 const NotFoundError = require('./errors/NotFoundError');
 
 const { PORT = 3000 } = process.env;
@@ -21,9 +23,6 @@ app.use(
 );
 
 app.use(cookieParser());
-
-const { createUser, login } = require('./controllers/users');
-const auth = require('./middlewares/auth');
 
 app.use(requestLogger);
 

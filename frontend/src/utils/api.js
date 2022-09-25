@@ -81,6 +81,6 @@
   }
 }
 
- const api = new Api('http://api.soroka.nomorepartiesxyz.ru'); 
+ const api = new Api('https://api.soroka.nomorepartiesxyz.ru'); 
 
  export default api;

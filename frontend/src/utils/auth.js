@@ -1,4 +1,4 @@
-export const url = 'http://api.soroka.nomorepartiesxyz.ru';
+export const url = 'https://api.soroka.nomorepartiesxyz.ru';
 
 const checkResponse = (res) => {
   if (res.ok) {
