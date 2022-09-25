@@ -4,6 +4,6 @@
 Пожалуйста, прикрепите в это описание ссылку на сайт, размещенный на Яндекс.Облаке.
 
 Ссылка на код - https://github.com/ekaterinasoroka/react-mesto-api-full.git
-Публичный IP - 51.250.93.76
-Фронтенд - https://soroka.nomorepartiesxyz.ru/
-Бэкенд - https://api.soroka.nomorepartiesxyz.ru/
+IP 51.250.93.76
+Frontend https://soroka.nomorepartiesxyz.ru/
+Backend https://api.soroka.nomorepartiesxyz.ru/
