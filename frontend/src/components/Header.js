@@ -10,7 +10,7 @@ function Header({ email, onLogout }) {
           exact path="/"
         >
           <p className="header__link">{email}</p>
-          <button onClick={onLogout} className="header__link">Выйти</button>
+          <a onClick={onLogout} className="header__link">Выйти</a>
         </Route>
 
         <Route
