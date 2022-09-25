@@ -3,7 +3,6 @@
     this._url = url;
     this._headers = {
       'Content-Type': 'application/json',
-      "Access-Control-Allow-Credentials": true,
     }
   }
 
