@@ -33,10 +33,9 @@ function App() {
 
   useEffect(() => {
     if(loggedIn) {
-      Promise.all([api.getInfoUsers(), api.getCards()]) 
-      .then(([userInfo, card]) => {
+     api.getInfoUsers()
+      .then((userInfo) => {
         setCurrentUser(userInfo);
-        setCards(card);
         setLoggedIn(true);
         setEmailInfo(userInfo.email);
         history.push('/');
@@ -44,6 +43,17 @@ function App() {
       .catch((err) => console.log(err))
     }
   }, [loggedIn, history]);
+
+  useEffect(() => {
+    if(loggedIn) {
+      api.getCards()
+      .then((card) => {
+        setCards(card);
+        setLoggedIn(true);
+      })
+      .catch((err) => console.log(err))
+    }
+  }, [loggedIn]);
 
   function onLogout() {
     return auth.logout()
