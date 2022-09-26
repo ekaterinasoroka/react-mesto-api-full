@@ -32,7 +32,7 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(loggedIn) {
+    if(!loggedIn) {
      api.getInfoUsers()
       .then((userInfo) => {
         setCurrentUser(userInfo);
@@ -45,7 +45,7 @@ function App() {
   }, [loggedIn, history]);
 
   useEffect(() => {
-    if(loggedIn) {
+    if(!loggedIn) {
       api.getCards()
       .then((card) => {
         setCards(card);
