@@ -32,24 +32,23 @@ function App() {
   const history = useHistory();
 
   useEffect(() => {
-    if(!loggedIn) {
-     api.getInfoUsers()
+    api.getInfoUsers()
       .then((userInfo) => {
         setCurrentUser(userInfo);
         setLoggedIn(true);
+        setEmailInfo(userInfo.email);
+        history.push("/");
       })
-      .catch((err) => console.log(err))
-    }
-  }, [loggedIn]);
+      .catch((err) => console.log(err));
+  }, [loggedIn, history])
 
   useEffect(() => {
-    if(!loggedIn) {
+    if (loggedIn) {
       api.getCards()
-      .then((card) => {
-        setCards(card);
-        setLoggedIn(true);
-      })
-      .catch((err) => console.log(err))
+        .then((card) => {
+          setCards(card);
+        })
+        .catch((err) => console.log(err));
     }
   }, [loggedIn]);
 
