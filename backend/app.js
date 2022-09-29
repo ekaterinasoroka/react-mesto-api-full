@@ -54,11 +54,11 @@ app.use(auth);
 app.use(UserRoutes);
 app.use(CardRoutes);
 
-app.use(errorLogger);
-
 app.use('*', (req, res, next) => {
-  next(new NotFoundError('Запрашиваемый пользователь не найден'));
+  next(new NotFoundError('Запрашиваемый маршрут не найден'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 
