@@ -37,12 +37,10 @@ function App() {
       .then((userInfo) => {
         setCurrentUser(userInfo);
         setLoggedIn(true);
-        setEmailInfo(userInfo.email);
-        history.push('/');
       })
       .catch((err) => console.log(err))
     }
-  }, [loggedIn, history]);
+  }, [loggedIn]);
 
   useEffect(() => {
     if(!loggedIn) {
